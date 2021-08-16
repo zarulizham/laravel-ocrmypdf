@@ -1,10 +1,10 @@
 <?php
 
-namespace ZarulIzham\OcrMyPdf\Commands;
+namespace ZarulIzham\OCRmyPDF\Commands;
 
 use Illuminate\Console\Command;
 
-class OcrMyPdfCommand extends Command
+class OCRmyPDFCommand extends Command
 {
     public $signature = 'laravel-ocrmypdf';
 

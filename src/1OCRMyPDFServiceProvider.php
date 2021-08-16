@@ -1,12 +1,12 @@
 <?php
 
-namespace ZarulIzham\OcrMyPdf;
+namespace ZarulIzham\OCRmyPDF;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use ZarulIzham\OcrMyPdf\Commands\OcrMyPdfCommand;
+use ZarulIzham\OCRmyPDF\Commands\OcrMyPdfCommand;
 
-class OcrMyPdfServiceProvider extends PackageServiceProvider
+class OCRmyPDFServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {

@@ -1,6 +1,6 @@
 {
     "name": "zarulizham/laravel-ocrmypdf",
-    "description": "This is my package OcrMyPdf",
+    "description": "This is my package OCRmyPDF",
     "keywords": [
         "zarulizham",
         "laravel",
@@ -29,13 +29,13 @@
     },
     "autoload": {
         "psr-4": {
-            "ZarulIzham\\OcrMyPdf\\": "src",
-            "ZarulIzham\\OcrMyPdf\\Database\\Factories\\": "database/factories"
+            "ZarulIzham\\OCRmyPDF\\": "src",
+            "ZarulIzham\\OCRmyPDF\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ZarulIzham\\OcrMyPdf\\Tests\\": "tests"
+            "ZarulIzham\\OCRmyPDF\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -49,10 +49,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ZarulIzham\\OcrMyPdf\\OcrMyPdfServiceProvider"
+                "ZarulIzham\\OCRmyPDF\\OCRmyPDFServiceProvider"
             ],
             "aliases": {
-                "OcrMyPdf": "ZarulIzham\\OcrMyPdf\\Facade\\OcrMyPdf"
+                "OCRmyPDF": "ZarulIzham\\OCRmyPDF\\Facade\\OCRmyPDF"
             }
         }
     },

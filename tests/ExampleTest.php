@@ -1,8 +1,8 @@
 <?php
 
-namespace ZarulIzham\OcrMyPdf\Tests;
+namespace ZarulIzham\OCRmyPDF\Tests;
 
-use ZarulIzham\OcrMyPdf\Facade\OcrMyPdf;
+use ZarulIzham\OCRmyPDF\Facade\OCRmyPDF;
 
 class ExampleTest extends TestCase
 {
@@ -10,7 +10,7 @@ class ExampleTest extends TestCase
     public function convert_pdf()
     {
         try {
-            OcrMyPdf::input(__DIR__.'/storage/panic.pdf')
+            OCRmyPDF::input(__DIR__.'/storage/panic.pdf')
                 ->output(__DIR__.'/storage/converted/panic.pdf')
                 ->redoOcr()
                 ->begin();

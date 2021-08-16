@@ -1,6 +1,6 @@
 <?php
 
-namespace ZarulIzham\OcrMyPdf;
+namespace ZarulIzham\OCRmyPDF;
 
 use Symfony\Component\Process\Process;
 use Illuminate\Support\Facades\Storage;
@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use function PHPUnit\Framework\throwException;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
-class OcrMyPdf
+class OCRmyPDF
 {
     protected $source;
     protected $destination;

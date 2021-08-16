@@ -1,6 +1,6 @@
 <?php
 
-namespace ZarulIzham\OcrMyPdf\Database\Factories;
+namespace ZarulIzham\OCRmyPDF\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

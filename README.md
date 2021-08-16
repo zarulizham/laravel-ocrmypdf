@@ -1,4 +1,4 @@
-# This is my package OcrMyPdf
+# This is my package OCRmyPDF
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/zarulizham/laravel-ocrmypdf.svg?style=flat-square)](https://packagist.org/packages/zarulizham/laravel-ocrmypdf)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/zarulizham/laravel-ocrmypdf/run-tests?label=tests)](https://github.com/zarulizham/laravel-ocrmypdf/actions?query=workflow%3Arun-tests+branch%3Amain)
@@ -36,13 +36,13 @@ composer require zarulizham/laravel-ocrmypdf
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --provider="ZarulIzham\OcrMyPdf\OcrMyPdfServiceProvider" --tag="laravel-ocrmypdf-migrations"
+php artisan vendor:publish --provider="ZarulIzham\OCRmyPDF\OCRmyPDFServiceProvider" --tag="laravel-ocrmypdf-migrations"
 php artisan migrate
 ```
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="ZarulIzham\OcrMyPdf\OcrMyPdfServiceProvider" --tag="laravel-ocrmypdf-config"
+php artisan vendor:publish --provider="ZarulIzham\OCRmyPDF\OCRmyPDFServiceProvider" --tag="laravel-ocrmypdf-config"
 ```
 
 This is the contents of the published config file:
@@ -55,7 +55,7 @@ return [
 ## Usage
 
 ```php
-$laravel-ocrmypdf = new ZarulIzham\OcrMyPdf();
+$laravel-ocrmypdf = new ZarulIzham\OCRmyPDF();
 echo $laravel-ocrmypdf->echoPhrase('Hello, Spatie!');
 ```
 
