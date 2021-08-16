@@ -4,6 +4,7 @@ namespace ZarulIzham\OcrMyPdf\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
+use ZarulIzham\OcrMyPdf\OcrMyPdf;
 use ZarulIzham\OcrMyPdf\OcrMyPdfServiceProvider;
 
 class TestCase extends Orchestra
@@ -12,13 +13,17 @@ class TestCase extends Orchestra
     {
         parent::setUp();
 
-        Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'ZarulIzham\\OcrMyPdf\\Database\\Factories\\'.class_basename($modelName).'Factory'
-        );
+        // Factory::guessFactoryNamesUsing(
+        //     fn (string $modelName) => 'ZarulIzham\\OcrMyPdf\\Database\\Factories\\'.class_basename($modelName).'Factory'
+        // );
     }
 
     protected function getPackageProviders($app)
     {
+        app()->bind('laravel-ocrmypdf', function () { // not a service provider but the target of service provider
+            return new OcrMyPdf();
+        });
+
         return [
             OcrMyPdfServiceProvider::class,
         ];

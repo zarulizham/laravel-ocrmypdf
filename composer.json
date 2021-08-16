@@ -8,17 +8,16 @@
     ],
     "homepage": "https://github.com/zarulizham/laravel-ocrmypdf",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Zarul Zubir",
-            "email": "zarul.izham@gmail.com",
-            "role": "Developer"
-        }
-    ],
+    "authors": [{
+        "name": "Zarul Zubir",
+        "email": "zarul.izham@gmail.com",
+        "role": "Developer"
+    }],
     "require": {
         "php": "^8.0",
+        "illuminate/contracts": "^8.37",
         "spatie/laravel-package-tools": "^1.4.3",
-        "illuminate/contracts": "^8.37"
+        "symfony/process": "^5.3"
     },
     "require-dev": {
         "brianium/paratest": "^6.2",
@@ -53,7 +52,7 @@
                 "ZarulIzham\\OcrMyPdf\\OcrMyPdfServiceProvider"
             ],
             "aliases": {
-                "OcrMyPdf": "ZarulIzham\\OcrMyPdf\\OcrMyPdfFacade"
+                "OcrMyPdf": "ZarulIzham\\OcrMyPdf\\Facade\\OcrMyPdf"
             }
         }
     },

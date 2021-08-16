@@ -17,6 +17,9 @@ class OcrMyPdfServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-ocrmypdf')
-            ->hasConfigFile();
+            ->hasConfigFile()
+            ->hasViews()
+            ->hasMigration('create_laravel-ocrmypdf_table')
+            ->hasCommand(OcrMyPdfCommand::class);
     }
 }

@@ -1,13 +1,13 @@
 <?php
 
-namespace ZarulIzham\OcrMyPdf;
+namespace ZarulIzham\OcrMyPdf\Facade;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * @see \ZarulIzham\OcrMyPdf\OcrMyPdf
  */
-class OcrMyPdfFacade extends Facade
+class OcrMyPdf extends Facade
 {
     protected static function getFacadeAccessor()
     {
