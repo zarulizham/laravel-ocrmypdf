@@ -2,6 +2,7 @@
 
 namespace ZarulIzham\OCRmyPDF;
 
+use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class OCRmyPDF
@@ -47,7 +48,7 @@ class OCRmyPDF
 
             return $process->getOutput();
         } catch (\Throwable $th) {
-            dd($th->getMessage());
+            throw new \Exception($th->getMessage());
         }
     }
 
