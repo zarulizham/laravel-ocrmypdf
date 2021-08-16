@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton\Tests;
+namespace ZarulIzham\OcrMyPdf\Tests;
 
 class ExampleTest extends TestCase
 {

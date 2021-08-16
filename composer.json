@@ -1,17 +1,17 @@
 {
-    "name": "vendor_slug/package_slug",
-    "description": ":package_description",
+    "name": "zarulizham/laravel-ocrmypdf",
+    "description": "This is my package OcrMyPdf",
     "keywords": [
-        ":vendor_name",
+        "zarulizham",
         "laravel",
-        "package_slug"
+        "laravel-ocrmypdf"
     ],
-    "homepage": "https://github.com/vendor_slug/package_slug",
+    "homepage": "https://github.com/zarulizham/laravel-ocrmypdf",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Zarul Zubir",
+            "email": "zarul.izham@gmail.com",
             "role": "Developer"
         }
     ],
@@ -30,13 +30,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "ZarulIzham\\OcrMyPdf\\": "src",
+            "ZarulIzham\\OcrMyPdf\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "ZarulIzham\\OcrMyPdf\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -50,10 +50,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "ZarulIzham\\OcrMyPdf\\OcrMyPdfServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\SkeletonFacade"
+                "OcrMyPdf": "ZarulIzham\\OcrMyPdf\\OcrMyPdfFacade"
             }
         }
     },

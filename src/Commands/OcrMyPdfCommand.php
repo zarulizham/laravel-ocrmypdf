@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace ZarulIzham\OcrMyPdf\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class OcrMyPdfCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-ocrmypdf';
 
     public $description = 'My command';
 
