@@ -2,10 +2,6 @@
 
 namespace ZarulIzham\OCRmyPDF;
 
-use Symfony\Component\Process\Process;
-use Illuminate\Support\Facades\Storage;
-
-use function PHPUnit\Framework\throwException;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class OCRmyPDF
@@ -18,12 +14,14 @@ class OCRmyPDF
     {
         return "OK";
     }
+
     public function input($source)
     {
         if (! file_exists($source)) {
             throw new \Exception("Source PDF not found.");
         } else {
             $this->source = $source;
+
             return $this;
         }
     }
@@ -31,6 +29,7 @@ class OCRmyPDF
     public function output($destination)
     {
         $this->destination = $destination;
+
         return $this;
     }
 
@@ -55,18 +54,21 @@ class OCRmyPDF
     public function setOptions(string $options)
     {
         $this->options = [$options];
+
         return $this;
     }
 
     public function addOption(string $options)
     {
         $this->options[] = $options;
+
         return $this;
     }
 
     public function redoOcr()
     {
         $this->addOption('--redo-ocr');
+
         return $this;
     }
 }
