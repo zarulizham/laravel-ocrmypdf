@@ -3,10 +3,10 @@
 namespace ZarulIzham\OCRmyPDF;
 
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
-use Symfony\Component\Process\Process;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Process;
 
 class OCRmyPDF
@@ -24,7 +24,7 @@ class OCRmyPDF
 
     public function input($source)
     {
-        if (!file_exists($source)) {
+        if (! file_exists($source)) {
             throw new \Exception("Source PDF not found.");
         } else {
             $this->source = $source;
@@ -39,12 +39,14 @@ class OCRmyPDF
         $path = Str::uuid() . '.pdf';
         Storage::disk($disk)->put($path, $binary);
         $this->source = Storage::disk($disk)->path($path);
+
         return $this;
     }
 
     public function output($destination)
     {
         $this->destination = $destination;
+
         try {
             File::makeDirectory(pathinfo($this->destination, PATHINFO_DIRNAME), 0755, true);
         } catch (\Throwable $th) {
@@ -68,7 +70,7 @@ class OCRmyPDF
             // $process = new Process(['ocrmypdf', "/Users/zarul.zubir/Documents/laravel/prodoc/storage/app/temp/05ea9f57-a51d-4c0f-bbf1-4911d7cbcc81.pdf", "Users/zarul.zubir/Documents/laravel/prodoc/storage/app/temp/ocrmypdf/3bc67439-e23d-4315-9880-182fa1087b13.pdf"]);
             $process->mustRun();
 
-            if (!$process->isSuccessful()) {
+            if (! $process->isSuccessful()) {
                 throw new ProcessFailedException($process);
             }
 
@@ -80,6 +82,7 @@ class OCRmyPDF
             return true;
         } catch (\Throwable $th) {
             throw new \Exception($th->getMessage());
+
             return false;
         }
     }
