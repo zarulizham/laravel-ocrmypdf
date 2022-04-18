@@ -2,8 +2,8 @@
 
 namespace ZarulIzham\OCRmyPDF;
 
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 use Symfony\Component\Process\Process;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Process\Exception\ProcessFailedException;
@@ -38,12 +38,14 @@ class OCRmyPDF
         $path = Str::uuid() . '.pdf';
         Storage::disk($disk)->put($path, $binary);
         $this->source = Storage::disk($disk)->path($path);
+
         return $this;
     }
 
     public function output($destination)
     {
         $this->destination = $destination;
+
         try {
             File::makeDirectory(pathinfo($this->destination, PATHINFO_DIRNAME), 0755, true);
         } catch (\Throwable $th) {
@@ -79,6 +81,7 @@ class OCRmyPDF
             return true;
         } catch (\Throwable $th) {
             throw new \Exception($th->getMessage());
+
             return false;
         }
     }

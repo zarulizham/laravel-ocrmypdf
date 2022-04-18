@@ -4,7 +4,6 @@ namespace ZarulIzham\OCRmyPDF;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use ZarulIzham\OCRmyPDF\Commands\OcrMyPdfCommand;
 
 class OCRmyPDFServiceProvider extends PackageServiceProvider
 {
