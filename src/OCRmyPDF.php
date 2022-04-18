@@ -2,13 +2,18 @@
 
 namespace ZarulIzham\OCRmyPDF;
 
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 use Symfony\Component\Process\Process;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class OCRmyPDF
 {
     protected $source;
+    protected $isBinary;
     protected $destination;
+    protected $processOutput;
     protected $options = [];
 
     public function echo()
@@ -18,7 +23,7 @@ class OCRmyPDF
 
     public function input($source)
     {
-        if (! file_exists($source)) {
+        if (!file_exists($source)) {
             throw new \Exception("Source PDF not found.");
         } else {
             $this->source = $source;
@@ -27,11 +32,29 @@ class OCRmyPDF
         }
     }
 
+    public function binary($binary, $disk = 'local')
+    {
+        $this->isBinary = true;
+        $path = Str::uuid() . '.pdf';
+        Storage::disk($disk)->put($path, $binary);
+        $this->source = Storage::disk($disk)->path($path);
+        return $this;
+    }
+
     public function output($destination)
     {
         $this->destination = $destination;
+        try {
+            File::makeDirectory(pathinfo($this->destination, PATHINFO_DIRNAME), 0755, true);
+        } catch (\Throwable $th) {
+        }
 
         return $this;
+    }
+
+    public function processOutput()
+    {
+        return $this->processOutput;
     }
 
     public function begin()
@@ -40,15 +63,23 @@ class OCRmyPDF
             $options = join(' ', $this->options);
             $cmd = config('ocrmypdf.path') . " $options {$this->source} {$this->destination}";
             $process = Process::fromShellCommandline($cmd);
-            $process->run();
+            // $process = \Symfony\Component\Process\Process::fromShellCommandline('cd /Users/zarul.zubir/Documents/laravel/prodoc/ && /usr/local/bin/ocrmypdf "/Users/zarul.zubir/Documents/laravel/prodoc/storage/app/temp/05ea9f57-a51d-4c0f-bbf1-4911d7cbcc81.pdf" "/Users/zarul.zubir/Documents/laravel/prodoc/storage/app/temp/ocrmypdf/3bc67439-e23d-4315-9880-182fa1087b13.pdf"');
+            // $process = new Process(['ocrmypdf', "/Users/zarul.zubir/Documents/laravel/prodoc/storage/app/temp/05ea9f57-a51d-4c0f-bbf1-4911d7cbcc81.pdf", "Users/zarul.zubir/Documents/laravel/prodoc/storage/app/temp/ocrmypdf/3bc67439-e23d-4315-9880-182fa1087b13.pdf"]);
+            $process->mustRun();
 
-            if (! $process->isSuccessful()) {
+            if (!$process->isSuccessful()) {
                 throw new ProcessFailedException($process);
             }
 
-            return $process->getOutput();
+            if ($this->isBinary) {
+                unlink($this->source);
+            }
+            $this->processOutput = $process->getOutput();
+            // dd($process->getOutput());
+            return true;
         } catch (\Throwable $th) {
             throw new \Exception($th->getMessage());
+            return false;
         }
     }
 
