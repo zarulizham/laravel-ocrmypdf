@@ -23,7 +23,7 @@ class OCRmyPDF
 
     public function input($source)
     {
-        if (!file_exists($source)) {
+        if (! file_exists($source)) {
             throw new \Exception("Source PDF not found.");
         } else {
             $this->source = $source;
@@ -67,7 +67,7 @@ class OCRmyPDF
             $process = Process::fromShellCommandline($cmd);
             $process->mustRun();
 
-            if (!$process->isSuccessful()) {
+            if (! $process->isSuccessful()) {
                 throw new ProcessFailedException($process);
             }
 
@@ -75,6 +75,7 @@ class OCRmyPDF
                 unlink($this->source);
             }
             $this->processOutput = $process->getOutput();
+
             return true;
         } catch (\Throwable $th) {
             throw new \Exception($th->getMessage());
