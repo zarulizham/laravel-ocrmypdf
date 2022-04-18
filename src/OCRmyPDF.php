@@ -7,7 +7,6 @@ use Illuminate\Support\Str;
 use Symfony\Component\Process\Process;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Process\Exception\ProcessFailedException;
-use Symfony\Component\Process\Process;
 
 class OCRmyPDF
 {
