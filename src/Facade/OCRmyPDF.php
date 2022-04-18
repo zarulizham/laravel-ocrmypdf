@@ -11,6 +11,6 @@ class OCRmyPDF extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'laravel-ocrmypdf';
+        return \ZarulIzham\OCRmyPDF\OCRmyPDF::class;
     }
 }
