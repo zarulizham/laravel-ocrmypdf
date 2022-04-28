@@ -23,7 +23,7 @@ class OCRmyPDF
 
     public function input($source)
     {
-        if (! file_exists($source)) {
+        if (!file_exists($source)) {
             throw new \Exception("Source PDF not found.");
         } else {
             $this->source = $source;
@@ -62,19 +62,23 @@ class OCRmyPDF
     public function begin()
     {
         try {
+
             $options = join(' ', $this->options);
-            $cmd = config('ocrmypdf.path') . " $options {$this->source} {$this->destination}";
-            $process = Process::fromShellCommandline($cmd);
-            $process->mustRun();
 
-            if (! $process->isSuccessful()) {
-                throw new ProcessFailedException($process);
-            }
+            shell_exec(config('ocrmypdf.path') . " $options {$this->source} {$this->destination}");
 
-            if ($this->isBinary) {
-                unlink($this->source);
-            }
-            $this->processOutput = $process->getOutput();
+            // $cmd = config('ocrmypdf.path') . " $options {$this->source} {$this->destination}";
+            // $process = Process::fromShellCommandline($cmd);
+            // $process->mustRun();
+
+            // if (! $process->isSuccessful()) {
+            //     throw new ProcessFailedException($process);
+            // }
+
+            // if ($this->isBinary) {
+            //     unlink($this->source);
+            // }
+            // $this->processOutput = $process->getOutput();
 
             return true;
         } catch (\Throwable $th) {
