@@ -75,9 +75,9 @@ class OCRmyPDF
             //     throw new ProcessFailedException($process);
             // }
 
-            // if ($this->isBinary) {
-            //     unlink($this->source);
-            // }
+            if ($this->isBinary) {
+                unlink($this->source);
+            }
             // $this->processOutput = $process->getOutput();
 
             return true;
