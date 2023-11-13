@@ -8,21 +8,23 @@
     ],
     "homepage": "https://github.com/zarulizham/laravel-ocrmypdf",
     "license": "MIT",
-    "authors": [{
-        "name": "Zarul Zubir",
-        "email": "zarul.izham@gmail.com",
-        "role": "Developer"
-    }],
+    "authors": [
+        {
+            "name": "Zarul Zubir",
+            "email": "zarul.izham@gmail.com",
+            "role": "Developer"
+        }
+    ],
     "require": {
-        "php": "^8.0",
-        "illuminate/contracts": "^8.37",
+        "php": "^8.0|^8.1|^8.2",
+        "illuminate/contracts": "^9.0|^10",
         "spatie/laravel-package-tools": "^1.4.3",
-        "symfony/process": "^5.3"
+        "symfony/process": "^6.2"
     },
     "require-dev": {
         "brianium/paratest": "^6.2",
-        "nunomaduro/collision": "^5.3",
-        "orchestra/testbench": "^6.15",
+        "nunomaduro/collision": "^7.10",
+        "orchestra/testbench": "^7.22",
         "phpunit/phpunit": "^9.3",
         "spatie/laravel-ray": "^1.23",
         "vimeo/psalm": "^4.8"
