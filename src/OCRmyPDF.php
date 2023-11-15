@@ -69,7 +69,9 @@ class OCRmyPDF
 
         $cmd = config('ocrmypdf.path')." $options {$this->source} {$this->destination}";
 
-        $process = Process::run($cmd);
+        $process = Process::run($cmd, function(string $type, string $output) {
+            \Log::debug($output);
+        });
 
         if (! $process->successful()) {
             $errorOutput = trim(preg_replace('/\s+/', ' ', $process->errorOutput()));
